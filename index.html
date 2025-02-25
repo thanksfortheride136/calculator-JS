@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI-80 Overlord AI</title>
     <link rel="stylesheet" href="style.css">
-    <title>TI-80-Coop</title>
 </head>
 <body>
     <div class="calc-outer-container">
@@ -12,38 +12,37 @@
             <p>TI-83-COOP</p>
         </div>
         <div class="led-screen-outer-container">
-            <div class="led-screen-container">
-                <p>numbers here</p>
+            <div class="led-screen-container" id="screen">
+                <p id="output">0</p>
             </div>
         </div>
         <div class="top-buttons-containers">
-            <div><button class="top-buttons">clear</button></div>
-            <div><button class="top-buttons">Exponent</button></div>
-            <div><button class="top-buttons">Random</button></div>
+            <button class="top-buttons" id="clear">Clear</button>
+            <button class="top-buttons" id="ai-overlord">Summon AI Overlord</button>
         </div>
         <div class="math-buttons-container">
-            <div><button class="math-buttons" data-value="7">7</button></div>
-            <div><button class="math-buttons">8</button></div>
-            <div><button class="math-buttons">9</button></div>
-            <div><button class="math-buttons">/</button></div>
+            <button class="math-buttons" data-value="7">7</button>
+            <button class="math-buttons" data-value="8">8</button>
+            <button class="math-buttons" data-value="9">9</button>
+            <button class="math-buttons" data-value="/">÷</button>
 
-            <div><button class="math-buttons">4</button></div>
-            <div><button class="math-buttons">5</button></div>
-            <div><button class="math-buttons">6</button></div>
-            <div><button class="math-buttons">x</button></div>
+            <button class="math-buttons" data-value="4">4</button>
+            <button class="math-buttons" data-value="5">5</button>
+            <button class="math-buttons" data-value="6">6</button>
+            <button class="math-buttons" data-value="*">×</button>
 
-            <div><button class="math-buttons">1</button></div>
-            <div><button class="math-buttons">2</button></div>
-            <div><button class="math-buttons">3</button></div>
-            <div><button class="math-buttons">-</button></div>
+            <button class="math-buttons" data-value="1">1</button>
+            <button class="math-buttons" data-value="2">2</button>
+            <button class="math-buttons" data-value="3">3</button>
+            <button class="math-buttons" data-value="-">−</button>
 
-            <div><button class="math-buttons">0</button></div>
-            <div><button class="math-buttons">.</button></div>
-            <div><button class="math-buttons">=</button></div>
-            <div><button class="math-buttons">+</button></div>
+            <button class="math-buttons" data-value="0">0</button>
+            <button class="math-buttons" data-value=".">.</button>
+            <button class="math-buttons" id="equals">=</button>
+            <button class="math-buttons" data-value="+">+</button>
         </div>
-
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
