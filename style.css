@@ -1,20 +1,31 @@
-/* Reset */
+/* RESET */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    overflow: hidden; /* Prevents scroll glitches */
 }
 
-/* Center the Calculator */
+/* BACKGROUND ANIMATION */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #e1e1e1, #f9f9f9);
+    background: black;
     font-family: Arial, sans-serif;
+    animation: backgroundGlitch 10s infinite alternate;
 }
 
-/* Calculator Outer Container */
+/* BACKGROUND GLITCH */
+@keyframes backgroundGlitch {
+    0% { background: black; }
+    25% { background: #200020; }
+    50% { background: #000022; }
+    75% { background: #220000; }
+    100% { background: black; }
+}
+
+/* CALCULATOR */
 .calc-outer-container {
     border-radius: 15px;
     display: flex;
@@ -22,31 +33,34 @@ body {
     align-items: center;
     height: 550px;
     width: 320px;
-    background-color: #333;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    background-color: #222;
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
     padding: 15px;
+    transition: transform 0.2s ease-in-out;
 }
 
-/* Title Bar */
+/* TITLE */
 .title-text-container {
-    color: #fff;
-    background-color: #222;
+    color: white;
+    background-color: black;
     width: 100%;
     padding: 10px;
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
+    border-bottom: 2px solid red;
 }
 
-/* Screen */
+/* SCREEN */
 .led-screen-outer-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #555;
+    background-color: #444;
     padding: 10px;
     border-radius: 8px;
+    transition: all 0.2s ease-in-out;
 }
 
 .led-screen-container {
@@ -61,46 +75,42 @@ body {
     font-size: 1.5rem;
     text-align: center;
     border-radius: 4px;
+    transition: all 0.2s ease-in-out;
 }
 
-/* AI Overlord Mode */
+/* AI OVERLORD MODE */
 .led-screen-container.ai-mode {
     background: red;
     color: white;
     font-size: 1.6rem;
     text-shadow: 2px 2px 10px black;
+    animation: glitch 0.3s infinite alternate;
 }
 
-/* Button Container */
-.top-buttons-containers {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0;
+/* ERROR MODE */
+.error-mode {
+    animation: flash 0.1s infinite alternate;
 }
 
-/* Buttons */
-button {
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+@keyframes flash {
+    0% { background: black; }
+    100% { background: red; }
 }
 
-/* Top Buttons */
-.top-buttons {
-    background: #eee;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+/* AI SCREEN FLICKER */
+@keyframes glitch {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05) rotate(1deg); }
 }
 
-.top-buttons:hover {
-    background: #ddd;
+/* AI OVERRUN EFFECT */
+@keyframes aiTakeover {
+    0% { background: black; color: red; }
+    50% { background: red; color: black; }
+    100% { background: black; color: red; }
 }
 
-/* Math Buttons Container */
+/* BUTTON GRID */
 .math-buttons-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -110,20 +120,85 @@ button {
     padding: 10px;
 }
 
-/* Math Buttons */
+/* MATH BUTTONS */
 .math-buttons {
     width: 60px;
     height: 60px;
     background-color: #666;
-    color: #fff;
+    color: white;
     font-weight: bold;
     border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.2s ease-in-out;
 }
 
+/* BUTTON HOVER */
 .math-buttons:hover {
     background-color: #444;
+    transform: scale(1.1);
+}
+
+/* ERROR WARNING BLINKING */
+.error-warning {
+    animation: blinkRed 0.1s infinite alternate;
+}
+
+@keyframes blinkRed {
+    0% { background: red; color: white; }
+    100% { background: black; color: red; }
+}
+
+/* ROTATION EFFECT FOR MAXIMUM CHAOS */
+.rotating {
+    animation: rotateEffect 2s infinite linear;
+}
+
+@keyframes rotateEffect {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+/* TEXT DISTORTION */
+.text-glitch {
+    animation: textGlitchEffect 0.1s infinite alternate;
+}
+
+@keyframes textGlitchEffect {
+    0% { letter-spacing: 1px; }
+    50% { letter-spacing: 3px; color: red; }
+    100% { letter-spacing: -1px; }
+}
+
+/* FAKE CRITICAL ERROR SCREEN */
+.fake-bsod {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: blue;
+    color: white;
+    font-size: 2rem;
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* HIDDEN SECRET MESSAGE */
+.secret-message {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    font-size: 0.8rem;
+    font-family: "Courier New", Courier, monospace;
+    display: none;
 }
