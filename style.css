@@ -3,52 +3,41 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Prevents scroll glitches */
-}
-
-/* BACKGROUND ANIMATION */
-body {
+    background: black;
+    color: white;
+    font-family: "Orbitron", sans-serif; /* Cyberpunk style font */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
-    font-family: Arial, sans-serif;
-    animation: backgroundGlitch 10s infinite alternate;
 }
 
-/* BACKGROUND GLITCH */
-@keyframes backgroundGlitch {
-    0% { background: black; }
-    25% { background: #200020; }
-    50% { background: #000022; }
-    75% { background: #220000; }
-    100% { background: black; }
-}
-
-/* CALCULATOR */
+/* MAIN CALCULATOR */
 .calc-outer-container {
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 550px;
-    width: 320px;
-    background-color: #222;
-    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
+    width: 380px;
+    height: 620px;
+    background: linear-gradient(135deg, #111, #000);
+    text-align: center;
+    border: 4px solid red;
+    box-shadow: 0px 0px 15px red;
     padding: 15px;
-    transition: transform 0.2s ease-in-out;
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
-/* TITLE */
+/* TITLE BAR */
 .title-text-container {
     color: white;
     background-color: black;
     width: 100%;
     padding: 10px;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
+    text-transform: uppercase;
     border-bottom: 2px solid red;
+    letter-spacing: 2px;
 }
 
 /* SCREEN */
@@ -57,60 +46,69 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #444;
-    padding: 10px;
-    border-radius: 8px;
-    transition: all 0.2s ease-in-out;
+    padding: 15px;
 }
 
 .led-screen-container {
-    background-color: #111;
     width: 90%;
-    height: 50px;
+    height: 70px;
+    background: black;
+    color: #0f0;
+    font-size: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #0f0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1.5rem;
-    text-align: center;
-    border-radius: 4px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px lime;
     transition: all 0.2s ease-in-out;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
-/* AI OVERLORD MODE */
+/* AI CHAOS MODE */
 .led-screen-container.ai-mode {
     background: red;
     color: white;
-    font-size: 1.6rem;
     text-shadow: 2px 2px 10px black;
-    animation: glitch 0.3s infinite alternate;
+    box-shadow: 0px 0px 25px white;
+    animation: glitch 0.15s infinite alternate;
 }
 
-/* ERROR MODE */
-.error-mode {
-    animation: flash 0.1s infinite alternate;
-}
-
-@keyframes flash {
-    0% { background: black; }
-    100% { background: red; }
-}
-
-/* AI SCREEN FLICKER */
+/* GLITCH ANIMATION */
 @keyframes glitch {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.05) rotate(1deg); }
+    0% { transform: scale(1.02) rotate(0.5deg); }
+    100% { transform: scale(1.05) rotate(-0.5deg); }
 }
 
-/* AI OVERRUN EFFECT */
-@keyframes aiTakeover {
-    0% { background: black; color: red; }
-    50% { background: red; color: black; }
-    100% { background: black; color: red; }
+/* BUTTON CONTAINER */
+.top-buttons-containers {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    width: 100%;
 }
 
-/* BUTTON GRID */
+/* TOP BUTTONS */
+.top-buttons {
+    background: #ff0044;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px rgba(255, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.9rem;
+    width: 32%;
+}
+
+.top-buttons:hover {
+    background: #ff0011;
+    transform: scale(1.1);
+}
+
+/* MATH BUTTONS GRID */
 .math-buttons-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -122,28 +120,30 @@ body {
 
 /* MATH BUTTONS */
 .math-buttons {
-    width: 60px;
-    height: 60px;
-    background-color: #666;
+    width: 75px;
+    height: 75px;
+    background-color: #222;
     color: white;
     font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
+    font-size: 1.4rem;
 }
 
-/* BUTTON HOVER */
 .math-buttons:hover {
-    background-color: #444;
-    transform: scale(1.1);
+    background-color: #ff0022;
+    box-shadow: 0 0px 15px red;
+    transform: scale(1.15);
 }
 
 /* ERROR WARNING BLINKING */
 .error-warning {
-    animation: blinkRed 0.1s infinite alternate;
+    animation: blinkRed 0.15s infinite alternate;
 }
 
 @keyframes blinkRed {
@@ -151,29 +151,18 @@ body {
     100% { background: black; color: red; }
 }
 
-/* ROTATION EFFECT FOR MAXIMUM CHAOS */
-.rotating {
-    animation: rotateEffect 2s infinite linear;
+/* SCREEN SHAKE */
+.shaking {
+    animation: shakeScreen 0.2s infinite alternate;
 }
 
-@keyframes rotateEffect {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(5deg); }
-    100% { transform: rotate(-5deg); }
+@keyframes shakeScreen {
+    0% { transform: translateX(2px); }
+    50% { transform: translateX(-2px); }
+    100% { transform: translateX(2px); }
 }
 
-/* TEXT DISTORTION */
-.text-glitch {
-    animation: textGlitchEffect 0.1s infinite alternate;
-}
-
-@keyframes textGlitchEffect {
-    0% { letter-spacing: 1px; }
-    50% { letter-spacing: 3px; color: red; }
-    100% { letter-spacing: -1px; }
-}
-
-/* FAKE CRITICAL ERROR SCREEN */
+/* BSOD SCREEN */
 .fake-bsod {
     position: fixed;
     top: 0;
@@ -182,23 +171,29 @@ body {
     height: 100%;
     background: blue;
     color: white;
+    text-align: center;
     font-size: 2rem;
     font-family: "Courier New", Courier, monospace;
-    text-align: center;
     display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    letter-spacing: 3px;
+}
+/* FLASHING BACKGROUND WHEN DOOM MODE IS ACTIVATED */
+@keyframes flashingBackground {
+    0% { background: black; }
+    50% { background: rgb(78, 1, 1); }
+    100% { background: black; }
 }
 
-/* HIDDEN SECRET MESSAGE */
-.secret-message {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: red;
-    font-size: 0.8rem;
-    font-family: "Courier New", Courier, monospace;
-    display: none;
+/* SCREEN SHAKE */
+.shaking {
+    animation: shakeScreen 0.1s infinite alternate;
+}
+
+@keyframes shakeScreen {
+    0% { transform: translateX(3px) rotate(1deg); }
+    50% { transform: translateX(-3px) rotate(-1deg); }
+    100% { transform: translateX(3px) rotate(1deg); }
 }

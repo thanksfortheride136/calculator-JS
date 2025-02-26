@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apocalypse Calculator 9000</title>
+    <title>TI-86-COOP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio id="glitchSound" src="glitch.mp3"></audio>
-    <audio id="errorSound" src="error.mp3"></audio>
-    <audio id="voiceMessage" src="ai_voice.mp3"></audio>
-
-    <div class="calc-outer-container">
+    <audio id="explosionSound" src="https://www.myinstants.com/media/sounds/explosion.mp3"></audio>
+    <audio id="doomMusic" src="https://www.myinstants.com/media/sounds/doom-eternal-music.mp3"></audio>
+    <audio id="glitchSound" src="https://www.myinstants.com/media/sounds/glitch.mp3"></audio>
+    <audio id="screamSound" src="https://www.myinstants.com/media/sounds/wilhelm-scream.mp3"></audio>
+    
+    <div class="calc-outer-container" id="calc">
         <div class="title-text-container">
-            <p>TI-83-COOP</p>
+            <p id="title">TI-86-COOP</p>
         </div>
         <div class="led-screen-outer-container">
             <div class="led-screen-container" id="screen">
@@ -22,7 +23,8 @@
         </div>
         <div class="top-buttons-containers">
             <button class="top-buttons" id="clear">Clear</button>
-            <button class="top-buttons" id="ai-overlord">Summon AI Overlord</button>
+            <button class="top-buttons" id="random">???</button>
+            <button class="top-buttons" id="doomMode">DOOM</button>
         </div>
         <div class="math-buttons-container">
             <button class="math-buttons" data-value="7">7</button>
@@ -45,6 +47,11 @@
             <button class="math-buttons" id="equals">=</button>
             <button class="math-buttons" data-value="+">+</button>
         </div>
+    </div>
+
+    <div class="fake-bsod" id="bsod">
+        <p>💀 SYSTEM FAILURE: ERROR CODE 9999</p>
+        <p>Restarting in 3...2...1...</p>
     </div>
 
     <script src="script.js"></script>
